@@ -3,7 +3,7 @@
 
 Purpose: quickly orient an AI coding agent to this repository so it can be productive without guesswork.
 
-- Repo snapshot: this repository currently contains only the project README: [README.md](README.md).
+- Repo snapshot: this repository now includes a minimal Python scaffold, tests, and CI files (see `src/`, `tests/`, `.github/workflows/ci.yml`).
 - Dev environment: development runs in a dev container (Ubuntu 24.04.3 LTS) per workspace configuration.
 
 What to do first
@@ -12,8 +12,11 @@ What to do first
 - If the repo is empty of source (only docs), open [README.md](README.md) and surface project goals or next steps to the human maintainer.
 
 Repository-specific guidance
-- This repo currently has no source tree or CI config to inspect. Avoid making assumptions about a build system—ask the user before adding language-specific scaffolding.
-- If asked to scaffold code or tests, propose a minimal structure and include a one-command way to run it (e.g., `python -m venv .venv && .venv/bin/pip install -r requirements.txt`).
+- This repo now contains a minimal Python scaffold. Avoid making assumptions about additional build systems—ask the owner before adding more language-specific scaffolding.
+- If asked to scaffold code or tests, propose a minimal structure and include a one-command way to run it (e.g., `python -m venv .venv && .venv/bin/pip install -r requirements-dev.txt`).
+
+Dev-container note
+- The workspace dev container may not include `python3-venv` which prevents creating virtual environments inside the container. For running tests locally, install `python3-venv` (Debian/Ubuntu) or run tests on your host machine. CI runs in GitHub Actions where the workflow installs dependencies and runs tests successfully.
 
 Search & discovery patterns
 - Use these commands to discover hidden or ignored files safely:
@@ -25,7 +28,7 @@ How to update this file
 - If `.github/copilot-instructions.md` already exists, merge by:
   1. Preserving unique, human-written rationale or project history.
   2. Updating any stale environment commands (validate they run in the dev container).
- 3. Adding concrete file references discovered during repo inspection (e.g., `src/` path, `Makefile` targets).
+  3. Adding concrete file references discovered during repo inspection (e.g., `src/` path, `Makefile` targets).
 
 If you need clarification
 - Ask the repository owner what the primary language/runtime should be, and whether CI or test scaffolding is desired before creating new files.
